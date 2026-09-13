@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  runtime:
+    name: CLI smoke test (Node 20)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm pack
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run packed CLI
+        run: |
+          mkdir -p "$RUNNER_TEMP/sample" && cd "$RUNNER_TEMP/sample"
+          git init -q && echo '{"name":"sample"}' > package.json
+          npx --yes --package="$GITHUB_WORKSPACE"/anturno-branch-*.tgz branch --version
+          npx --yes --package="$GITHUB_WORKSPACE"/anturno-branch-*.tgz branch init
+          test -f .branch/context.json

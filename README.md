@@ -1,10 +1,16 @@
 # branch
 
+[![CI](https://github.com/anturno/branch/actions/workflows/ci.yml/badge.svg)](https://github.com/anturno/branch/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/@anturno/branch)](https://www.npmjs.com/package/@anturno/branch)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Give your AI agent the context and skills to build better products.
 
 branch scans your repo, writes what it finds to `.branch/context.json`, and installs an idea-to-ship workflow as agent skills. Your agent then writes `.branch/CONTEXT.md` (stack, commands, conventions, gotchas) and works from it in every session.
 
 ## Quick start
+
+Requires Node.js 20.12 or newer.
 
 ```bash
 npx @anturno/branch init
@@ -56,13 +62,16 @@ Options: `--host codex` installs to `.agents/skills` and `AGENTS.md`. `--global`
 
 Manifests, lockfiles, workspace config, CI and deploy files, `.env.example`, and source files for env var **names**. It never opens `.env` files and never sends anything anywhere. Everything else is read by your agent, on your machine.
 
-## Development
+## Contributing
+
+Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, project layout, and how skills are written. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md), and report security issues privately as described in [SECURITY.md](SECURITY.md).
 
 ```bash
 npm install
 npm test
 npm run build
-npm pack && npx --package=./anturno-branch-0.0.1.tgz branch init
 ```
 
-Skills live in `templates/skills/<name>/SKILL.md`. `{{SKILLS_DIR}}` and `{{INVOKE}}` are filled in at install time for the target host.
+## License
+
+[MIT](LICENSE)

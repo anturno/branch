@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Give your AI agent the context and skills to build better products. Scans your repo, installs an idea-to-ship workflow as agent skills.",
   "license": "MIT",
+  "author": "Anturno (https://github.com/anturno)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anturno/branch.git"
@@ -18,17 +19,23 @@
   "files": [
     "dist",
     "templates",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=20.12"
   },
   "keywords": [
     "claude-code",
     "codex",
     "agent-skills",
     "ai",
-    "context"
+    "context",
+    "claude",
+    "agents-md",
+    "cli",
+    "developer-tools"
   ],
   "publishConfig": {
     "access": "public"
