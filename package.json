@@ -1,0 +1,45 @@
+{
+  "name": "@anturno/branch",
+  "version": "0.0.1",
+  "description": "Give your AI agent the context and skills to build better products. Scans your repo, installs an idea-to-ship workflow as agent skills.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "branch": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "claude-code",
+    "codex",
+    "agent-skills",
+    "ai",
+    "context"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.8.0",
+    "zod": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}
