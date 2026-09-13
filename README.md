@@ -10,16 +10,18 @@ branch scans your repo, writes what it finds to `.branch/context.json`, and inst
 
 ## Quick start
 
-Requires Node.js 20.12 or newer.
+Runs with [Bun](https://bun.sh) or Node.js 20.12+.
 
 ```bash
-npx @anturno/branch init
+bunx @anturno/branch init
 ```
+
+Or with Node: `npx @anturno/branch init`.
 
 Then open Claude Code in the repo and run `/branch-start`. Or do both at once:
 
 ```bash
-npx @anturno/branch init --launch
+bunx @anturno/branch init --launch
 ```
 
 ## The workflow
@@ -66,10 +68,12 @@ Manifests, lockfiles, workspace config, CI and deploy files, `.env.example`, and
 
 Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, project layout, and how skills are written. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md), and report security issues privately as described in [SECURITY.md](SECURITY.md).
 
+The project uses [Bun](https://bun.sh) for installing, testing, and building.
+
 ```bash
-npm install
-npm test
-npm run build
+bun install
+bun test
+bun run build
 ```
 
 ## License

@@ -11,7 +11,7 @@ You are the entry point of branch. First make sure the agent understands this re
 
 If the system prompt contains a `<branch-info>` block, use it and skip discovery. Otherwise read `.branch/context.json`.
 
-If `.branch/context.json` does not exist, tell the user: `Run npx @anturno/branch init first.` and stop.
+If `.branch/context.json` does not exist, tell the user: `Run bunx @anturno/branch init (or npx @anturno/branch init) first.` and stop.
 
 ## Phase 1: Write `.branch/CONTEXT.md`
 

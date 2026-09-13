@@ -14,7 +14,7 @@ body:
     attributes:
       label: Steps to reproduce
       placeholder: |
-        1. npx @anturno/branch init
+        1. bunx @anturno/branch init
         2. ...
     validations:
       required: true
@@ -22,7 +22,7 @@ body:
     id: version
     attributes:
       label: branch version
-      description: Output of `npx @anturno/branch --version`
+      description: Output of `bunx @anturno/branch --version` (or `npx`)
     validations:
       required: true
   - type: dropdown

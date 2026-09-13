@@ -26,6 +26,7 @@
   "engines": {
     "node": ">=20.12"
   },
+  "packageManager": "bun@1.4.2",
   "keywords": [
     "claude-code",
     "codex",
@@ -41,20 +42,19 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "vitest run",
+    "build": "bun run scripts/build.ts",
+    "dev": "bun run src/cli.ts",
+    "test": "bun test",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+    "prepublishOnly": "bun run typecheck && bun test && bun run build"
   },
   "dependencies": {
     "@clack/prompts": "^1.8.0",
     "zod": "^4.6.4"
   },
   "devDependencies": {
-    "@types/node": "^22.20.2",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "vitest": "^5.0.0"
+    "@types/bun": "^1.4.2",
+    "@types/node": "^22",
+    "typescript": "^5.9.3"
   }
 }

@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 import { BLOCK_END, BLOCK_START, installSkills, skillNames, upsertBlock } from "../src/install.js";
 import { layout } from "../src/paths.js";
 import { info, scanAndWrite } from "../src/state.js";

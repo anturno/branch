@@ -39,7 +39,7 @@ Summarize the last 14 days (or the given window) from `git log`, `.branch/activi
 
 ### `context` (inline)
 
-1. Compare `.branch/context.json` against the repo. If the user has the CLI, suggest `npx @anturno/branch scan` first so the scan is fresh.
+1. Compare `.branch/context.json` against the repo. If the user has the CLI, suggest `bunx @anturno/branch scan` (or `npx`) first so the scan is fresh.
 2. Re-read the files that back each claim in `.branch/CONTEXT.md` (commands, layout, conventions).
 3. List each claim that is now wrong or missing, with evidence (file path).
 4. Show the proposed edits and apply them after a yes. Update the `Scanned:` line to match `context.json`.

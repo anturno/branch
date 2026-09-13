@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 import { diffContext, readPythonDeps, scan } from "../src/scanner/index.js";
 import { fixture } from "./helpers.js";
 

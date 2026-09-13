@@ -10,41 +10,44 @@ permissions:
 
 jobs:
   test:
-    name: Test (Node ${{ matrix.node }}, ${{ matrix.os }})
+    name: Test (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        node: [22, 24]
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun test
+      - run: bun run build
+
+  runtime:
+    name: CLI smoke test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - name: Pack
+        run: |
+          bun pm pack --quiet
+          echo "TARBALL=$GITHUB_WORKSPACE/$(ls anturno-branch-*.tgz)" >> "$GITHUB_ENV"
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: npm
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build
-
-  runtime:
-    name: CLI smoke test (Node 20)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - name: Pack
-        run: echo "TARBALL=$GITHUB_WORKSPACE/$(npm pack --silent)" >> "$GITHUB_ENV"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Run packed CLI
+      - name: Run packed CLI with Node
         run: |
           mkdir -p "$RUNNER_TEMP/sample" && cd "$RUNNER_TEMP/sample"
           git init -q && echo '{"name":"sample"}' > package.json

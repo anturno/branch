@@ -9,13 +9,13 @@ Thanks for helping. Bug reports, skill improvements, and scanner support for new
 
 ## Setup
 
-Requires Node.js 22.12 or newer for development (the published CLI runs on Node 20.12+).
+Development uses [Bun](https://bun.sh) 1.4 or newer for dependencies, tests, and builds. The published CLI is plain JavaScript and must keep running on Node.js 20.12+, so do not use `Bun.*` APIs in `src/`; stick to `node:*` modules. CI runs the packed CLI on Node to enforce this.
 
 ```bash
 git clone https://github.com/anturno/branch.git
 cd branch
-npm install
-npm test
+bun install
+bun test
 ```
 
 ## Project layout
@@ -28,7 +28,8 @@ npm test
 | `src/launch.ts` | Opens the agent with pre-computed state |
 | `templates/skills/<name>/SKILL.md` | The workflow skills. `{{SKILLS_DIR}}` and `{{INVOKE}}` are filled in per host |
 | `templates/agent-block.md` | Block added to `CLAUDE.md` / `AGENTS.md` |
-| `test/` | Vitest suites |
+| `test/` | `bun:test` suites |
+| `scripts/build.ts` | Bundles `src/cli.ts` into `dist/cli.js` for Node with `Bun.build` |
 
 ## Making changes
 
@@ -38,14 +39,20 @@ npm test
 4. Run the full check before pushing:
 
    ```bash
-   npm run typecheck && npm test && npm run build
+   bun run typecheck && bun test && bun run build
    ```
 
 5. Try the CLI against a real repo:
 
    ```bash
-   npm pack
-   npx --package=./anturno-branch-0.0.1.tgz branch init --cwd ../some-repo
+   bun run dev -- init --cwd ../some-repo
+
+   Or test the packed build exactly as users get it:
+
+   ```bash
+   bun run build && bun pm pack
+   bunx --package=./anturno-branch-0.0.1.tgz branch init --cwd ../some-repo
+   ```
    ```
 
 ## Writing skills

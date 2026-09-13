@@ -8,6 +8,6 @@
 
 ## Checklist
 
-- [ ] `npm run typecheck && npm test && npm run build` passes
+- [ ] `bun run typecheck && bun test && bun run build` passes
 - [ ] Tests added or updated for behavior changes
 - [ ] `CHANGELOG.md` updated under `Unreleased` for user-facing changes

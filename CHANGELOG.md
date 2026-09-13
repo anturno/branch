@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- Development tooling moved to Bun (install, test, build). The published CLI still runs on Node.js 20.12+ and can be run with `bunx` or `npx`.
+
 ## [0.0.1]
 
 ### Added
