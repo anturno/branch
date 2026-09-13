@@ -3,6 +3,14 @@
   "version": "0.0.1",
   "description": "Give your AI agent the context and skills to build better products. Scans your repo, installs an idea-to-ship workflow as agent skills.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anturno/branch.git"
+  },
+  "homepage": "https://github.com/anturno/branch#readme",
+  "bugs": {
+    "url": "https://github.com/anturno/branch/issues"
+  },
   "type": "module",
   "bin": {
     "branch": "./dist/cli.js"
