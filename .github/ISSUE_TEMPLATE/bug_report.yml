@@ -1,0 +1,44 @@
+name: Bug report
+description: Something in branch does not work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. bunx @anturno/branch init
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: branch version
+      description: Output of `bunx @anturno/branch --version` (or `npx`)
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Agent host
+      options: [Claude Code, Codex]
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS and Node.js version
+      placeholder: macOS 15, Node 22.12
+  - type: textarea
+    id: stack
+    attributes:
+      label: Repo stack
+      description: Framework, package manager, monorepo tool. Paste `branch info` output if relevant, with anything private removed.
