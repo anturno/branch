@@ -59,7 +59,7 @@ Print this, filled in. Keep it short.
 ```
 branch · <name>
 <languages> · <frameworks> · <package manager>
-<ideas> ideas · <plans> plans · last: <lastActivity.skill and subject, or "nothing yet">
+<work items> work items · <ideas> ideas · <plans> plans · last: <lastActivity.skill and subject, or "nothing yet">
 
 What next?
 1. Capture or pressure-test an idea    {{INVOKE}}branch-idea

@@ -55,5 +55,5 @@ Reply: "Sounds like two things. I'll <outcome 1> first, then <outcome 2>. OK?" W
 Only if the skill finished (not cancelled or failed):
 
 1. Append one JSON line to `.branch/activity.jsonl` (create it if missing):
-   `{"ts":"<ISO time>","skill":"branch-plan","route":"<skill>","subject":"<short subject>","artifact":"<file written or null>","next":"<next command>"}`
+   `{"ts":"<ISO time>","skill":"branch-plan","route":"<skill>","subject":"<short subject>","artifact":"<file written or null>","work":"<card slug or null>","next":"<next command>"}`
 2. End with one line: `Next: {{INVOKE}}branch-build <plan file>` (or `{{INVOKE}}branch-plan eng` if the plan has open architecture questions).

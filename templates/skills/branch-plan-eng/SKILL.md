@@ -52,4 +52,8 @@ Append to the plan file (replace an earlier section with the same heading):
 - ...
 ```
 
-If there are blocking items, update the plan's Steps to include the fixes, and tell the user what changed. Return to the calling dispatcher's logging phase if there is one.
+If there are blocking items, update the plan's Steps to include the fixes, and tell the user what changed.
+
+If the plan has no work card yet (`.branch/work/<plan slug>.md` missing), create one in the card format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` with `Status: planned` and `Plan:` filled.
+
+Return to the calling dispatcher's logging phase if there is one.

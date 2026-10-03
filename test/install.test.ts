@@ -140,6 +140,8 @@ describe("scanAndWrite and info", () => {
     const root = fixture({
       "package.json": { name: "app" },
       ".branch/plans/2026-09-01-a.md": "# a",
+      ".branch/work/2026-09-01-a.md": "# a\n\nStatus: planned\n",
+      ".branch/work/2026-09-02-b.md": "# b\n\nStatus: captured\n",
       ".branch/activity.jsonl": '{"skill":"branch-idea"}\n{"skill":"branch-plan","next":"/branch-build"}\n',
     });
     const l = layout({ root });
@@ -151,7 +153,7 @@ describe("scanAndWrite and info", () => {
     expect(i.context.exists).toBe(true);
     expect(i.contextDoc.exists).toBe(false);
     expect(i.agentFiles).toEqual([{ path: "CLAUDE.md", hasBlock: true }]);
-    expect(i.work).toEqual({ ideas: 0, plans: 1, retros: 0 });
+    expect(i.work).toEqual({ items: 2, ideas: 0, plans: 1, retros: 0 });
     expect(i.lastActivity).toEqual({ skill: "branch-plan", next: "/branch-build" });
   });
 });

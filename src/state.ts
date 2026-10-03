@@ -73,6 +73,7 @@ export function info(l: Layout) {
     contextDoc: { path: relative(l.root, l.contextDocPath), exists: existsSync(l.contextDocPath) },
     agentFiles: l.blockFiles.map((f) => ({ path: relative(l.root, f), hasBlock: hasBlock(f) })),
     work: {
+      items: countMd(join(l.stateDir, "work")),
       ideas: countMd(join(l.stateDir, "ideas")),
       plans: countMd(join(l.stateDir, "plans")),
       retros: countMd(join(l.stateDir, "retros")),

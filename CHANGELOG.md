@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- Work cards: every unit of work now gets `.branch/work/<slug>.md` tracking its stage (`captured` → `planned` → `building` → `shipped`, more statuses reserved) and linking its idea, plan, and PR. Skills create and update cards as they run; `branch info` and the `/branch-start` home screen report the count.
+
 ## [0.0.1]
 
 ### Added

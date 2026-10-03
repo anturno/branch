@@ -34,6 +34,23 @@ Map 1 → `capture`, 2 → `develop`, 3 → `pushback`.
 
 File name for all routes: `.branch/ideas/<YYYY-MM-DD>-<kebab-slug>.md`. If a file for the same idea exists, update it instead of creating a new one.
 
+Every idea also gets a **work card** — `.branch/work/<same slug>.md`, one durable object per unit of work that every later stage advances. Create it on `capture` (update `Status:`/`Idea:` if the card already exists). Format — this is the canonical card spec other skills follow:
+
+```markdown
+# <title>
+
+Status: captured
+Source: terminal
+Trust: internal
+Created: <YYYY-MM-DD>
+Idea: <path or none>
+Spec: <path or none>
+Plan: <path or none>
+PR: <url or none>
+```
+
+`Status:` moves forward through `captured`, `triaged`, `specced`, `planned`, `building`, `reviewing`, `shipped`, `dropped`. `Source:` is where the work came from (`terminal` today; `issue:<n>`, `alert`, `schedule` later). `Trust:` is `internal` until intake accepts untrusted input.
+
 ### `capture` (inline)
 
 Write the idea in the user's words. Do not expand it. Format:
@@ -62,5 +79,5 @@ Print `→ ran branch-pushback`, then read `{{SKILLS_DIR}}/branch-pushback/SKILL
 ## Phase 4: Log and suggest the next step
 
 1. Append to `.branch/activity.jsonl`:
-   `{"ts":"<ISO time>","skill":"branch-idea","route":"<route>","subject":"<title>","artifact":"<idea file>","next":"<next command>"}`
+   `{"ts":"<ISO time>","skill":"branch-idea","route":"<route>","subject":"<title>","artifact":"<idea file>","work":"<card slug>","next":"<next command>"}`
 2. End with one line. Raw idea: `Next: {{INVOKE}}branch-idea develop`. Developed or approved: `Next: {{INVOKE}}branch-plan <idea file>`. Verdict "drop": no next step.

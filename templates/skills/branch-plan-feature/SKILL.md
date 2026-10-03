@@ -54,4 +54,6 @@ Idea: <path to idea file or "none">
 - ...
 ```
 
+Then update the **work card**. It lives at `.branch/work/<slug>.md` — the idea's slug when a linked idea exists, otherwise the plan's slug. If the card exists, set `Status: planned` and `Plan: <plan path>`. If it does not, create it in the card format defined in `{{SKILLS_DIR}}/branch-idea/SKILL.md` (Status: `planned`, `Plan:` filled, `Idea:` from the plan header).
+
 Show the user the Goal and the step list, and the file path. Ask if anything should change before building. Return to the calling dispatcher's logging phase if there is one.

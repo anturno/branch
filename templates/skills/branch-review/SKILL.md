@@ -43,5 +43,5 @@ Print `→ ran <skill>` on its own line, then read `{{SKILLS_DIR}}/<skill>/SKILL
 ## Phase 4: Log and suggest the next step
 
 1. Append to `.branch/activity.jsonl`:
-   `{"ts":"<ISO time>","skill":"branch-review","route":"<route>","subject":"<target>","artifact":null,"findings":<count>,"next":"<next command>"}`
+   `{"ts":"<ISO time>","skill":"branch-review","route":"<route>","subject":"<target>","artifact":null,"work":"<card slug or null>","findings":<count>,"next":"<next command>"}`
 2. End with one line. Blocking findings → `Next: {{INVOKE}}branch-build fix`. Clean code or security review → `Next: {{INVOKE}}branch-review ready`. Preflight passed → `Next: {{INVOKE}}branch-ship`.

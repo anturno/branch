@@ -33,7 +33,7 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 
 ### `plan`
 
-1. Open the plan. If several have unchecked steps and none was named, list them and ask which.
+1. Open the plan. If several have unchecked steps and none was named, list them and ask which. Set `Status: building` on the plan's work card (`.branch/work/<slug>.md` — the `Idea:` slug when the plan links one, else the plan's slug). If no card exists, create one in the format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` with `Status: building` and `Plan:` filled.
 2. Take the next unchecked step only. Before editing, say in one line what you will change and which files.
 3. Implement it following the repo's conventions. Reuse existing code the plan points to.
 4. Verify: run the relevant test, typecheck, or lint command from CONTEXT.md. If the step has no automated check, say how you verified it.
@@ -42,12 +42,15 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 
 ### `fix`
 
-1. Reproduce first: find or write the smallest failing check (test, script, or exact manual steps). Show the failure.
-2. Find the root cause. State it in one sentence before changing code.
-3. Make the smallest fix. Keep the failing test as a regression test when the repo has a test setup.
-4. Run the check again and the nearby test suite. Show that it passes.
+1. A fix is a unit of work too: create `.branch/work/<YYYY-MM-DD>-<kebab-slug>.md` in the card format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` with `Status: building` (skip if a card for this fix already exists).
+2. Reproduce first: find or write the smallest failing check (test, script, or exact manual steps). Show the failure.
+3. Find the root cause. State it in one sentence before changing code.
+4. Make the smallest fix. Keep the failing test as a regression test when the repo has a test setup.
+5. Run the check again and the nearby test suite. Show that it passes.
 
 ### `spike`
+
+Spikes are throwaway — no work card.
 
 1. Create a branch `spike/<slug>` if the working tree is clean; otherwise ask before touching anything.
 2. Build the fastest thing that answers the question. Skip polish and tests.
@@ -56,5 +59,5 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 ## Phase 4: Log and suggest the next step
 
 1. Append to `.branch/activity.jsonl`:
-   `{"ts":"<ISO time>","skill":"branch-build","route":"<route>","subject":"<short subject>","artifact":"<plan file or null>","next":"<next command>"}`
+   `{"ts":"<ISO time>","skill":"branch-build","route":"<route>","subject":"<short subject>","artifact":"<plan file or null>","work":"<card slug or null>","next":"<next command>"}`
 2. End with one line: all plan steps done or fix complete → `Next: {{INVOKE}}branch-review`. Steps remain → `Next: {{INVOKE}}branch-build <plan file>`.
