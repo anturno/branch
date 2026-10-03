@@ -21,6 +21,14 @@ Review the diff, not the session. Everything in your report must stand on `git d
 3. Read `.branch/CONTEXT.md` Conventions. Read the full files around each change, not only the diff lines.
 4. If a plan in `.branch/plans/` matches this work, read it and check the changes against its Goal and Steps. If the work's card in `.branch/work/` links a spec, validate it too: each `## Acceptance` item needs evidence in the diff — a test, a command, or observable behavior. An acceptance item with no evidence is a finding.
 
+## Classify
+
+Pick the review's weight from what the diff touches — not what the session says it is:
+
+- **High-risk**: paths containing `auth`, `billing`, `payment`, `migrations/`, `session`, `token`, `password`, `permission`, `secret`, or `crypto`, or diff lines touching `eval`, `exec`, `innerHTML`, raw SQL, or file deletion → run the whole security checklist regardless of focus, and lead the report with `Risk: elevated (<the signal that matched>)`.
+- **Trivial**: only docs, comments, changelog, or non-behavioral config changed → a two-line report: what changed, anything worth flagging (usually none).
+- **Default**: everything else → the checks below.
+
 ## Check
 
 **correctness**: logic errors, wrong conditions, unhandled null or error paths, race conditions, broken contracts with callers, behavior that does not match the plan.
@@ -29,7 +37,7 @@ Review the diff, not the session. Everything in your report must stand on `git d
 
 **tests**: changed behavior with no test when the repo has a test setup; tests that do not actually assert the behavior.
 
-**security** (always check the first three; all of them when focus is security):
+**security** (always check the first three; all of them when focus is security or the diff classified high-risk):
 - secrets or tokens in code, config, or logs
 - user input reaching SQL, shell, HTML, file paths, or redirects without validation
 - missing authentication or authorization checks on new endpoints or actions
