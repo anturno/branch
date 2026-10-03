@@ -3,3 +3,7 @@
 {"ts":"2026-10-03T22:30:00Z","skill":"branch-review","route":"code","subject":"work-object diff","artifact":null,"work":"2026-10-03-work-object","findings":2,"next":"/branch-review ready"}
 {"ts":"2026-10-03T22:40:00Z","skill":"branch-ship","route":"pr","subject":"One work object","artifact":"branch work-cards, commits d64a382+1e32f8e (no PR by request)","work":"2026-10-03-work-object","next":"/branch-reflect"}
 {"ts":"2026-10-03T22:45:00Z","skill":"branch-reflect","route":"retro","subject":"work-cards run","artifact":".branch/retros/2026-10-03.md","next":"/branch-idea"}
+{"ts":"2026-10-03T23:00:00Z","skill":"branch-idea","route":"capture","subject":"Triage","artifact":".branch/ideas/2026-10-03-triage.md","work":"2026-10-03-triage","next":"/branch-triage 2026-10-03-triage"}
+{"ts":"2026-10-03T23:20:00Z","skill":"branch-triage","subject":"Fresh-context review","artifact":".branch/work/2026-10-03-fresh-context-review.md","work":"2026-10-03-fresh-context-review","next":"/branch-plan 2026-10-03-fresh-context-review"}
+{"ts":"2026-10-03T23:25:00Z","skill":"branch-build","route":"plan","subject":"Triage","artifact":".branch/plans/2026-10-03-triage.md","work":"2026-10-03-triage","next":"/branch-review"}
+{"ts":"2026-10-03T23:35:00Z","skill":"branch-review","route":"code","subject":"triage diff","artifact":null,"work":"2026-10-03-triage","findings":1,"next":"/branch-review ready"}
