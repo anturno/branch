@@ -50,3 +50,5 @@
 {"ts":"2026-10-05T00:45:00Z","skill":"branch-ship","route":"pr","subject":"Risk-classified review","artifact":"branch risk-classified-review (no PR by request)","work":"2026-10-05-risk-classified-review","next":"/branch-reflect"}
 {"ts":"2026-10-05T01:00:00Z","skill":"branch-build","route":"task","subject":"Diff walkthroughs","artifact":null,"work":"2026-10-05-diff-walkthroughs","next":"/branch-review"}
 {"ts":"2026-10-05T01:05:00Z","skill":"branch-ship","route":"pr","subject":"Diff walkthroughs","artifact":"branch diff-walkthroughs (no PR by request)","work":"2026-10-05-diff-walkthroughs","next":"/branch-reflect"}
+{"ts":"2026-10-05T01:20:00Z","skill":"branch-build","route":"task","subject":"Outcome metrics","artifact":null,"work":"2026-10-05-outcome-metrics","next":"/branch-review"}
+{"ts":"2026-10-05T01:25:00Z","skill":"branch-review","route":"code","subject":"outcome-metrics diff","artifact":null,"work":"2026-10-05-outcome-metrics","findings":0,"next":"/branch-review ready"}
