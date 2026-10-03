@@ -1,6 +1,6 @@
 # Worktree isolation
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal

@@ -36,3 +36,4 @@
 {"ts":"2026-10-04T03:30:00Z","skill":"branch-ship","route":"pr","subject":"Issue intake","artifact":"branch issue-intake (no PR by request)","work":"2026-10-04-issue-intake","next":"/branch-reflect"}
 {"ts":"2026-10-04T03:50:00Z","skill":"branch-build","route":"plan","subject":"Worktree isolation","artifact":".branch/plans/2026-10-04-worktree-isolation.md","work":"2026-10-04-worktree-isolation","next":"/branch-review"}
 {"ts":"2026-10-04T03:55:00Z","skill":"branch-review","route":"code","subject":"worktree-isolation diff","artifact":null,"work":"2026-10-04-worktree-isolation","findings":0,"next":"/branch-review ready"}
+{"ts":"2026-10-04T04:00:00Z","skill":"branch-ship","route":"pr","subject":"Worktree isolation","artifact":"branch worktree-isolation (no PR by request)","work":"2026-10-04-worktree-isolation","next":"/branch-reflect"}
