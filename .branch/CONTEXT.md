@@ -43,3 +43,4 @@ TypeScript (strict, ESM), no runtime deps beyond `@clack/prompts` and `zod`. Bun
 - Never read `.env*` — only env var names are scanned.
 - `branch info` counts `.branch/ideas|plans|retros` and shows the last activity line; skills rely on the `<branch-info>` block at launch.
 - CONTRIBUTING.md requires an `Unreleased` CHANGELOG.md entry for user-facing changes and tests for behavior changes.
+- Artifact dates come from `date`, never the model's assumption — a whole batch of cards was once misdated by days.

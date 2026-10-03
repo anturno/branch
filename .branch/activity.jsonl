@@ -53,3 +53,4 @@
 {"ts":"2026-10-05T01:20:00Z","skill":"branch-build","route":"task","subject":"Outcome metrics","artifact":null,"work":"2026-10-05-outcome-metrics","next":"/branch-review"}
 {"ts":"2026-10-05T01:25:00Z","skill":"branch-review","route":"code","subject":"outcome-metrics diff","artifact":null,"work":"2026-10-05-outcome-metrics","findings":0,"next":"/branch-review ready"}
 {"ts":"2026-10-05T01:30:00Z","skill":"branch-ship","route":"pr","subject":"Outcome metrics","artifact":"branch outcome-metrics (no PR by request)","work":"2026-10-05-outcome-metrics","next":"/branch-reflect"}
+{"ts":"2026-10-05T02:00:00Z","skill":"branch-retro","subject":"roadmap build-out","artifact":".branch/retros/2026-10-03-roadmap.md","work":null,"next":"/branch-idea"}
