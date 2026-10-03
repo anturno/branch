@@ -40,3 +40,5 @@
 {"ts":"2026-10-04T04:20:00Z","skill":"branch-build","route":"plan","subject":"Scheduled runs","artifact":".branch/plans/2026-10-04-scheduled-runs.md","work":"2026-10-04-scheduled-runs","next":"/branch-review"}
 {"ts":"2026-10-04T04:25:00Z","skill":"branch-review","route":"code","subject":"scheduled-runs diff","artifact":null,"work":"2026-10-04-scheduled-runs","findings":0,"next":"/branch-review ready"}
 {"ts":"2026-10-04T04:30:00Z","skill":"branch-ship","route":"pr","subject":"Scheduled runs","artifact":"branch scheduled-runs (no PR by request)","work":"2026-10-04-scheduled-runs","next":"/branch-reflect"}
+{"ts":"2026-10-04T04:35:00Z","skill":"branch-build","route":"task","subject":"Untrusted-input position","artifact":null,"work":"2026-10-04-untrusted-input-position","next":"/branch-review"}
+{"ts":"2026-10-04T04:40:00Z","skill":"branch-ship","route":"pr","subject":"Untrusted-input position","artifact":"branch scheduled-runs (no PR by request)","work":"2026-10-04-untrusted-input-position","next":"/branch-reflect"}
