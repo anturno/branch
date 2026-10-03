@@ -1,6 +1,6 @@
 # Spec artifacts
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal

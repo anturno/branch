@@ -14,3 +14,4 @@
 {"ts":"2026-10-04T00:15:00Z","skill":"branch-triage","subject":"Spec artifacts","artifact":".branch/work/2026-10-03-spec-artifacts.md","work":"2026-10-03-spec-artifacts","next":"/branch-plan 2026-10-03-spec-artifacts"}
 {"ts":"2026-10-04T00:30:00Z","skill":"branch-build","route":"plan","subject":"Spec artifacts","artifact":".branch/plans/2026-10-03-spec-artifacts.md","work":"2026-10-03-spec-artifacts","next":"/branch-review"}
 {"ts":"2026-10-04T00:35:00Z","skill":"branch-review","route":"code","subject":"spec-artifacts diff (validated against spec)","artifact":null,"work":"2026-10-03-spec-artifacts","findings":0,"next":"/branch-review ready"}
+{"ts":"2026-10-04T00:45:00Z","skill":"branch-ship","route":"pr","subject":"Spec artifacts","artifact":"branch spec-artifacts (no PR by request)","work":"2026-10-03-spec-artifacts","next":"/branch-reflect"}
