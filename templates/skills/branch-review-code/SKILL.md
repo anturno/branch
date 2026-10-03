@@ -50,6 +50,8 @@ For each candidate finding, re-read the code and try to prove it wrong. Drop it 
 
 ## Report
 
+Lead with a **walkthrough** — the change narrated for someone who will merge it without reading every line: 4–6 bullets describing what the diff actually does, in logic order ("reads X → checks Y → writes Z"). Not file names, what it *does*. Then the findings:
+
 ```
 <n> findings · <target> · focus: <focus>
 

@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- Diff walkthroughs: `branch-review-code` reports now lead with a 4–6 bullet narration of what the change does, in logic order — for the human who merges without reading every line.
 - Risk-classified review: `branch-review-code` now picks its weight from the diff — paths touching auth/billing/migrations/credentials or diffs touching eval/exec/raw SQL get the full security checklist unprompted; docs-only changes get a two-line review.
 - Lesson promotion: `branch-retro` now spots a "Try next" theme recurring across retros and offers to promote it to `## Gotchas` in `CONTEXT.md` (with confirmation) — evidence-triggered, so lessons land where future sessions always read them.
 - `branch tick`: advances the work queue once — reports pending and in-flight cards, and with `--launch` opens the agent on the next action (triage the queue, or `branch-build task` on the oldest `ready` card). Designed to be called by launchd, cron, or CI on a timer; the scheduler owns timing, skills own the logic.
