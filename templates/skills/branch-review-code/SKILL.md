@@ -14,6 +14,8 @@ Find problems that matter. Every finding must be something you would block a pul
 
 ## Gather
 
+Review the diff, not the session. Everything in your report must stand on `git diff` output and the files it touches. If this same session wrote the code, treat that history as absent — a finding that only makes sense because you remember the reasoning is not a finding.
+
 1. Find the default branch (`git symbolic-ref refs/remotes/origin/HEAD`, falling back to `main`).
 2. Get the diff: `git diff <default>...HEAD` and `git diff HEAD`. For a PR number, use `gh pr diff <n>`.
 3. Read `.branch/CONTEXT.md` Conventions. Read the full files around each change, not only the diff lines.

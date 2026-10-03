@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- `branch review` command: opens a fresh agent session on `/branch-review`, so the review sees the diff and not the session that produced it. `branch-review-code` now requires findings to stand on the diff alone.
 - `branch-triage` skill: a decision step between idea and plan. Classifies work items as `ready` / `needs-plan` / `question` / `drop`, dedupes against ideas, plans, cards and open PRs, and records the verdict in a `## Triage` section on the work card. With no argument it processes every `captured` card. Triage is read-only on code.
 - Work cards: every unit of work now gets `.branch/work/<slug>.md` tracking its stage (`captured` → `planned` → `building` → `shipped`, more statuses reserved) and linking its idea, plan, and PR. Skills create and update cards as they run; `branch info` and the `/branch-start` home screen report the count.
 

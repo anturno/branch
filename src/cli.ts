@@ -20,6 +20,7 @@ Commands
   doctor    Check the install
   info      Print branch state as JSON
   start     Open the agent on /branch-start
+  review    Open a fresh agent session on /branch-review
 
 Options
   --host <claude|codex>  Agent to install for (default: claude)
@@ -77,6 +78,8 @@ async function main(argv: string[]): Promise<number> {
       return 0;
     case "start":
       return launch(l, `${l.invoke}branch-start`);
+    case "review":
+      return launch(l, `${l.invoke}branch-review ${positionals.slice(1).join(" ")}`.trim());
     default:
       console.error(`branch: unknown command "${command}"\n`);
       console.log(HELP);
