@@ -32,20 +32,24 @@ bunx @anturno/branch init --launch
 |---------|--------------|
 | `/branch-start` | Writes `.branch/CONTEXT.md`, shows the home screen |
 | `/branch-idea` | Capture an idea, think it through, or pressure-test it |
-| `/branch-plan` | Break it into verifiable steps, or lock down the architecture |
-| `/branch-build` | Work through a plan step by step, fix a bug, or spike |
-| `/branch-review` | Code review, security review, or ready-to-ship checklist |
+| `/branch-triage` | Sort captured work: ready, needs-plan, question, or drop |
+| `/branch-plan` | Break it into verifiable steps, or lock down the architecture (`spec` writes an approved spec first) |
+| `/branch-build` | Work through a plan step by step, fix a bug, do a small card task, or spike |
+| `/branch-review` | Code review (risk-classified, with a diff walkthrough), security review, or ready-to-ship checklist |
 | `/branch-ship` | Pre-flight, open a PR, or cut a release |
-| `/branch-reflect` | Retro, recent history, or refresh the agent's context |
+| `/branch-tend` | Keep an open PR moving — fix failing checks and review comments |
+| `/branch-evidence` | Attach proof a change works (screenshots, captures, verification) to the PR |
+| `/branch-reflect` | Retro (with metrics and lesson promotion), recent history, or refresh the agent's context |
 
-Each command asks one plain question when you give it nothing, and routes directly when you do (`/branch-plan eng`, `/branch-build fix login redirect loops`). Work is saved to the repo:
+Each command asks one plain question when you give it nothing, and routes directly when you do (`/branch-plan eng`, `/branch-build fix login redirect loops`). Every unit of work is a card in `.branch/work/` that tracks its stage. Work is saved to the repo:
 
 ```
 .branch/
   context.json     deterministic scan (branch scan)
   CONTEXT.md       agent-written context, read every session
-  ideas/  plans/  retros/
+  ideas/  plans/  specs/  retros/  work/  evidence/
   activity.jsonl   what ran, what it produced, what's next
+  metrics.jsonl    outcome snapshots, read by retro
   manifest.json    hashes of installed skills
 ```
 

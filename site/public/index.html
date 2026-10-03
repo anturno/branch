@@ -156,7 +156,7 @@
 <span class="text-fg-faint">│</span>  Env vars: 9
 <span class="text-fg-faint">│</span>
 <span class="text-fg">◆</span>  .branch/context.json created
-<span class="text-fg">◆</span>  13 skills in .claude/skills (13 new, 0 updated, 0 unchanged)
+<span class="text-fg">◆</span>  16 skills in .claude/skills (16 new, 0 updated, 0 unchanged)
 <span class="text-fg">◆</span>  CLAUDE.md: branch block added
 <span class="text-fg-faint">│</span>
 <span class="text-fg-faint">└</span>  Next: open Claude Code in this repo and run <span class="text-fg">/branch-start</span></pre>
@@ -186,10 +186,12 @@
       <ul role="list">
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-start</code><span class="block text-fg-faint sm:text-right">Brief the agent, list next moves</span></li>
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-idea</code><span class="block text-fg-faint sm:text-right">Write it down or poke holes in it</span></li>
-        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-plan</code><span class="block text-fg-faint sm:text-right">Steps you can check off, or a design</span></li>
-        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-build</code><span class="block text-fg-faint sm:text-right">Execute a plan, fix, or prototype</span></li>
-        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-review</code><span class="block text-fg-faint sm:text-right">Bugs, security, release checklist</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-triage</code><span class="block text-fg-faint sm:text-right">Sort what to build: ready, plan, question, drop</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-plan</code><span class="block text-fg-faint sm:text-right">An approved spec, then steps you can check off</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-build</code><span class="block text-fg-faint sm:text-right">Execute a plan, fix, task, or prototype</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-review</code><span class="block text-fg-faint sm:text-right">Fresh eyes on the diff, security, release checklist</span></li>
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-ship</code><span class="block text-fg-faint sm:text-right">Final checks, pull request, version bump</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-tend</code><span class="block text-fg-faint sm:text-right">Keep the PR moving: fix checks, answer comments</span></li>
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">/branch-reflect</code><span class="block text-fg-faint sm:text-right">What shipped, what to change</span></li>
       </ul>
     </section>
@@ -202,27 +204,30 @@
 
 <span class="text-fg">branch · tidepool</span>
 Python · FastAPI · uv
-2 ideas · 4 plans · last: branch-build "webhook retries"
+3 work items · 2 ideas · 4 plans · last: branch-build "webhook retries"
 
 What next?
 1. Capture or pressure-test an idea    <span class="text-fg">/branch-idea</span>
-2. Turn it into a plan                 <span class="text-fg">/branch-plan</span>
-3. Build from a plan, fix, or spike    <span class="text-fg">/branch-build</span>
-4. Review the work                     <span class="text-fg">/branch-review</span>
-5. Get it shipped                      <span class="text-fg">/branch-ship</span>
-6. Look back                           <span class="text-fg">/branch-reflect</span></pre>
+2. Sort what to build                  <span class="text-fg">/branch-triage</span>
+3. Turn it into a plan                 <span class="text-fg">/branch-plan</span>
+4. Build from a plan, fix, or spike    <span class="text-fg">/branch-build</span>
+5. Review the work                     <span class="text-fg">/branch-review</span>
+6. Get it shipped                      <span class="text-fg">/branch-ship</span>
+7. Keep the PR moving                  <span class="text-fg">/branch-tend</span>
+8. Look back                           <span class="text-fg">/branch-reflect</span></pre>
       </div>
     </section>
 
     <section class="animate-rise mt-14 sm:grid sm:grid-cols-[var(--spacing-gutter)_minmax(0,1fr)]" style="--delay: 240ms">
       <h2 class="mb-2 font-normal text-fg-faint sm:mb-0">In your repo</h2>
       <div>
-        <p class="text-pretty text-fg-muted">Ideas, plans and retros are plain files in the repo. The next session reads them and carries on.</p>
+        <p class="text-pretty text-fg-muted">Ideas, plans, work cards and retros are plain files in the repo. The next session reads them and carries on.</p>
         <pre class="term mt-4"><span class="text-fg">.branch/</span>
   context.json     <span class="text-fg-faint">deterministic scan</span>
   CONTEXT.md       <span class="text-fg-faint">agent-written, read every session</span>
-  ideas/  plans/  retros/
+  ideas/  plans/  specs/  retros/  work/  evidence/
   activity.jsonl   <span class="text-fg-faint">what ran, what's next</span>
+  metrics.jsonl    <span class="text-fg-faint">outcome snapshots for retro</span>
   manifest.json    <span class="text-fg-faint">hashes of installed skills</span></pre>
       </div>
     </section>
@@ -236,6 +241,11 @@ What next?
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch doctor</code><span class="block text-fg-faint sm:text-right">Check the install</span></li>
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch info</code><span class="block text-fg-faint sm:text-right">Print state as JSON</span></li>
         <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch start</code><span class="block text-fg-faint sm:text-right">Open the agent on /branch-start</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch review</code><span class="block text-fg-faint sm:text-right">Fresh agent session on the diff</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch pull</code><span class="block text-fg-faint sm:text-right">Pull a GitHub issue into the queue</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch work</code><span class="block text-fg-faint sm:text-right">Build a card in its own git worktree</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch tick</code><span class="block text-fg-faint sm:text-right">Advance the queue once — for schedulers</span></li>
+        <li class="py-2 sm:flex sm:items-baseline sm:justify-between sm:gap-4 sm:py-1.5"><code class="code shrink-0">branch metrics</code><span class="block text-fg-faint sm:text-right">Cards, runs, findings — outcome counts</span></li>
       </ul>
     </section>
 
