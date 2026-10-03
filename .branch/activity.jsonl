@@ -30,3 +30,6 @@
 {"ts":"2026-10-04T02:40:00Z","skill":"branch-build","route":"task","subject":"Build task route","artifact":null,"work":"2026-10-04-build-task-route","next":"/branch-review"}
 {"ts":"2026-10-04T02:45:00Z","skill":"branch-review","route":"code","subject":"build-task-route diff","artifact":null,"work":"2026-10-04-build-task-route","findings":0,"next":"/branch-review ready"}
 {"ts":"2026-10-04T02:50:00Z","skill":"branch-ship","route":"pr","subject":"Build task route","artifact":"branch build-task-route (no PR by request)","work":"2026-10-04-build-task-route","next":"/branch-reflect"}
+{"ts":"2026-10-04T03:00:00Z","skill":"branch-triage","subject":"Issue intake","artifact":".branch/work/2026-10-04-issue-intake.md","work":"2026-10-04-issue-intake","next":"/branch-plan 2026-10-04-issue-intake"}
+{"ts":"2026-10-04T03:20:00Z","skill":"branch-build","route":"plan","subject":"Issue intake","artifact":".branch/plans/2026-10-04-issue-intake.md","work":"2026-10-04-issue-intake","next":"/branch-review"}
+{"ts":"2026-10-04T03:25:00Z","skill":"branch-review","route":"code","subject":"issue-intake diff","artifact":null,"work":"2026-10-04-issue-intake","findings":0,"next":"/branch-review ready"}
