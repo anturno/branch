@@ -38,7 +38,7 @@ Print `→ ran branch-preflight`, read `{{SKILLS_DIR}}/branch-preflight/SKILL.md
 1. Run preflight first (as above). If it fails, stop and show what failed.
 2. If on the default branch, propose a branch name and create it.
 3. Group changes into commits with clear messages. Show the commit plan and wait for a yes.
-4. Write the PR description: what changed and why (link the plan in `.branch/plans/` if one exists), how it was tested, risks.
+4. Write the PR description: what changed and why (link the plan in `.branch/plans/` if one exists), how it was tested, risks. If `.branch/evidence/<slug>.md` exists for this work, fold its `## Evidence` section into the body.
 5. Ask for a yes, then push and open the PR with `gh pr create`. Print the URL.
 
 ### `release` (inline)

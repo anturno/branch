@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- `branch-evidence` skill: attaches proof a change works — screenshots, a capture, or an exact command-and-output record — as a `## Evidence` section on the PR body, staged at `.branch/evidence/<slug>.md` until a PR exists. `branch-ship` folds a staged section into the PR automatically.
 - `branch-tend` skill: stays with an open PR — reads failing checks and review comments, fixes what it can with the reproduce-first discipline, commits to the same branch, and reports what still needs a human. Never merges, never force-pushes; review comments are treated as untrusted input.
 - Specs: `/branch-plan spec` writes `.branch/specs/<slug>.md` — what the change must do and the checks that prove it — behind a user approval gate. The work card gets `Status: specced`; `branch-plan-feature` derives the goal from an approved spec and `branch-review-code` reports a finding for any acceptance item without evidence.
 - `branch review` command: opens a fresh agent session on `/branch-review`, so the review sees the diff and not the session that produced it. `branch-review-code` now requires findings to stand on the diff alone.
