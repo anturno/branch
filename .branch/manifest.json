@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "host": "claude",
   "files": {
-    ".claude/skills/branch-build/SKILL.md": "992d311937dc8f3f0c31f831176d4be92dc424264ada3c72afbd6cb225351c22",
+    ".claude/skills/branch-build/SKILL.md": "e43e12f0d0be0b47205b9083e808ff2d09883c259bc56d375f2e1e4c600adcc4",
     ".claude/skills/branch-evidence/SKILL.md": "6c24cd1f73731d6cc2dc043e76873eda75a341e926d240de789f76f906144c61",
     ".claude/skills/branch-idea/SKILL.md": "8a9377cf606326e0cf0b0171b539a725c8bc996e5e97027cf90d9e2e064d301d",
     ".claude/skills/branch-plan/SKILL.md": "7c13d7d50ac1ad5f7de7a6209bae89bf83635bd94384a186e0e21bd2282587ba",
@@ -17,6 +17,6 @@
     ".claude/skills/branch-ship/SKILL.md": "280d50e0292c624e8287c9ce17726976e84441f15e8735d8d439ae819f740fb5",
     ".claude/skills/branch-start/SKILL.md": "0e3a280469749fd20d5c4bb0d2122eb594d584357b1606231fad82ffeb3e9166",
     ".claude/skills/branch-tend/SKILL.md": "b35e7ed3df51c2f1d4a5c03b2d97230242501a9822a4463c8a077a39cd7bc4ac",
-    ".claude/skills/branch-triage/SKILL.md": "e177031b0b8473e644f58cbba0be9a8eeabc89b782dd3106540ff452b4f59327"
+    ".claude/skills/branch-triage/SKILL.md": "0e8bdf853b2f3256d2eb4e3203c2d212f2ac6a6862c458dbf17381b0507da22c"
   }
 }
