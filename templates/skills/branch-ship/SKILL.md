@@ -53,4 +53,4 @@ Print `→ ran branch-preflight`, read `{{SKILLS_DIR}}/branch-preflight/SKILL.md
 1. Append to `.branch/activity.jsonl`:
    `{"ts":"<ISO time>","skill":"branch-ship","route":"<route>","subject":"<short subject>","artifact":"<PR URL, tag, or null>","work":"<card slug or null>","next":"<next command>"}`
 2. If a plan in `.branch/plans/` was fully shipped, set `Status: shipped` in it, and on its work card (`.branch/work/<slug>.md` — the `Idea:` slug when the plan links one, else the plan's slug) set `Status: shipped` and `PR: <url>`. For a fix with no plan, update its card the same way.
-3. End with one line: `Next: {{INVOKE}}branch-reflect` after a release or a merged PR, otherwise `Next: {{INVOKE}}branch-idea`.
+3. End with one line: `Next: {{INVOKE}}branch-tend` after opening a PR, `Next: {{INVOKE}}branch-reflect` after a release or a merged PR, otherwise `Next: {{INVOKE}}branch-idea`.

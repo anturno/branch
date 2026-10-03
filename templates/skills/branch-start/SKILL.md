@@ -68,7 +68,8 @@ What next?
 4. Build from a plan, fix, or spike    {{INVOKE}}branch-build
 5. Review the work                     {{INVOKE}}branch-review
 6. Get it shipped                      {{INVOKE}}branch-ship
-7. Look back                           {{INVOKE}}branch-reflect
+7. Keep the PR moving                  {{INVOKE}}branch-tend
+8. Look back                           {{INVOKE}}branch-reflect
 ```
 
 If `lastActivity.next` exists, add one line under the menu: `Suggested: <next>`.
