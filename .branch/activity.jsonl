@@ -48,3 +48,4 @@
 {"ts":"2026-10-05T00:35:00Z","skill":"branch-build","route":"task","subject":"Risk-classified review","artifact":null,"work":"2026-10-05-risk-classified-review","next":"/branch-review"}
 {"ts":"2026-10-05T00:40:00Z","skill":"branch-review","route":"code","subject":"risk-classified-review diff","artifact":null,"work":"2026-10-05-risk-classified-review","findings":0,"next":"/branch-review ready"}
 {"ts":"2026-10-05T00:45:00Z","skill":"branch-ship","route":"pr","subject":"Risk-classified review","artifact":"branch risk-classified-review (no PR by request)","work":"2026-10-05-risk-classified-review","next":"/branch-reflect"}
+{"ts":"2026-10-05T01:00:00Z","skill":"branch-build","route":"task","subject":"Diff walkthroughs","artifact":null,"work":"2026-10-05-diff-walkthroughs","next":"/branch-review"}
