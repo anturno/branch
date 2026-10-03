@@ -1,6 +1,6 @@
 {
   "name": "@anturno/branch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Give your AI agent the context and skills to build better products. Scans your repo, installs an idea-to-ship workflow as agent skills.",
   "license": "MIT",
   "author": "Anturno (https://github.com/anturno)",

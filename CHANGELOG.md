@@ -4,6 +4,8 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-10-03
+
 ### Added
 
 - `branch metrics`: counts the outcomes the pipeline already records — cards by status, runs per stage, review findings — and appends a snapshot to `.branch/metrics.jsonl`. `branch-retro` reads the trend, so "did it work" becomes data.
