@@ -1,6 +1,6 @@
 # Fresh-context review
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal
