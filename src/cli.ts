@@ -7,6 +7,7 @@ import { agentAvailable, launch } from "./launch.js";
 import { type Host, findRoot, layout, packageVersion } from "./paths.js";
 import { scan, diffContext } from "./scanner/index.js";
 import { info, readContext, scanAndWrite } from "./state.js";
+import { pullIssue } from "./pull.js";
 
 const HELP = `branch ${packageVersion()}
 Give your AI agent the context and skills to build better products.
@@ -21,6 +22,7 @@ Commands
   info      Print branch state as JSON
   start     Open the agent on /branch-start
   review    Open a fresh agent session on /branch-review
+  pull      Pull a GitHub issue into the work queue (--launch opens triage)
 
 Options
   --host <claude|codex>  Agent to install for (default: claude)
@@ -80,6 +82,8 @@ async function main(argv: string[]): Promise<number> {
       return launch(l, `${l.invoke}branch-start`);
     case "review":
       return launch(l, `${l.invoke}branch-review ${positionals.slice(1).join(" ")}`.trim());
+    case "pull":
+      return runPull(l, positionals[1], values.launch);
     default:
       console.error(`branch: unknown command "${command}"\n`);
       console.log(HELP);
@@ -119,6 +123,28 @@ function runScan(l: ReturnType<typeof layout>) {
 
 function update(l: ReturnType<typeof layout>, force?: boolean) {
   reportInstall(l, installSkills(l, { force }));
+  return 0;
+}
+
+async function runPull(l: ReturnType<typeof layout>, ref: string | undefined, launchAgent?: boolean) {
+  if (!ref) {
+    console.error("branch: pull needs an issue number or URL");
+    return 1;
+  }
+  let r: ReturnType<typeof pullIssue>;
+  try {
+    r = pullIssue(l, ref);
+  } catch (e) {
+    console.error(e instanceof Error ? e.message : String(e));
+    return 1;
+  }
+  p.log.success(`${relative(l.root, r.path)} ${r.deduped ? "already in the queue" : "captured"}`);
+  const next = `${l.invoke}branch-triage ${r.slug}`;
+  if (launchAgent) {
+    p.outro(`Opening ${l.host} on ${next}`);
+    return launch(l, next);
+  }
+  p.outro(`Next: ${next}`);
   return 0;
 }
 

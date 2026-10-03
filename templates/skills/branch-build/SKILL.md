@@ -54,7 +54,7 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 
 For small, well-specified work that needs no plan — typically a `ready` verdict from triage.
 
-1. Read the card (`.branch/work/<slug>.md`): its `## Triage` verdict and `Spec:` acceptance items when linked. Set `Status: building`; if the subject has no card, create one as in the `fix` route.
+1. Read the card (`.branch/work/<slug>.md`): its `## Triage` verdict, `Spec:` acceptance items when linked, and `## Source` text when the work came from an issue. Set `Status: building`; if the subject has no card, create one as in the `fix` route.
 2. Say in one line what you will change and which files.
 3. Implement the smallest correct change following the repo's conventions.
 4. Verify with the relevant check from CONTEXT.md.

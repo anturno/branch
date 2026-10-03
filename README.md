@@ -60,6 +60,7 @@ Each command asks one plain question when you give it nothing, and routes direct
 | `branch info` | Print state as JSON |
 | `branch start` | Open the agent on `/branch-start` |
 | `branch review` | Open a fresh agent session on `/branch-review` — it sees the diff, not this session |
+| `branch pull` | Pull a GitHub issue into the work queue as a captured card (`--launch` opens triage) |
 
 Options: `--host codex` installs to `.agents/skills` and `AGENTS.md`. `--global` installs skills to your home directory.
 

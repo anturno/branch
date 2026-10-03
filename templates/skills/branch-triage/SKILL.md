@@ -16,7 +16,7 @@ Read `.branch/CONTEXT.md` if it exists. Triage needs the repo picture to judge s
 ## Phase 1: Collect items
 
 1. **Empty** → the queue: every `.branch/work/*.md` with `Status: captured`. If none, say `Nothing to triage — capture something with {{INVOKE}}branch-idea.` and stop.
-2. **A path** to a work card or an idea file → that item (an idea resolves to the card of the same slug; create one if missing).
+2. **A path** to a work card or an idea file → that item (an idea resolves to the card of the same slug; create one if missing). A card's `## Source` section, when present, carries the item's text — read it before classifying.
 3. **Anything else** → a subject with no card: create `.branch/work/<YYYY-MM-DD>-<kebab-slug>.md` in the card format from `{{SKILLS_DIR}}/branch-idea/SKILL.md`, then triage it.
 
 Triage one item at a time, in the order collected.

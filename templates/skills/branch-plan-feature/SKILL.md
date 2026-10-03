@@ -9,7 +9,7 @@ Produce a plan another agent session could build from without asking questions.
 
 ## Input
 
-A subject, an idea file from `.branch/ideas/`, or a work card from `.branch/work/` (read its `Idea:`, `Spec:` and `## Triage` section when present). Read `.branch/CONTEXT.md` first.
+A subject, an idea file from `.branch/ideas/`, or a work card from `.branch/work/` (read its `Idea:`, `Spec:`, `## Triage` and `## Source` sections when present). Read `.branch/CONTEXT.md` first.
 
 ## Steps
 
