@@ -1,12 +1,12 @@
 # Fresh-context review
 
-Status: triaged
+Status: building
 Source: terminal
 Trust: internal
 Created: 2026-10-03
 Idea: none
 Spec: none
-Plan: none
+Plan: .branch/plans/2026-10-03-fresh-context-review.md
 PR: none
 
 ## Triage

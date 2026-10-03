@@ -8,3 +8,5 @@
 {"ts":"2026-10-03T23:25:00Z","skill":"branch-build","route":"plan","subject":"Triage","artifact":".branch/plans/2026-10-03-triage.md","work":"2026-10-03-triage","next":"/branch-review"}
 {"ts":"2026-10-03T23:35:00Z","skill":"branch-review","route":"code","subject":"triage diff","artifact":null,"work":"2026-10-03-triage","findings":1,"next":"/branch-review ready"}
 {"ts":"2026-10-03T23:45:00Z","skill":"branch-ship","route":"pr","subject":"Triage","artifact":"branch triage, commits 6144003+4ada068 (no PR by request)","work":"2026-10-03-triage","next":"/branch-reflect"}
+{"ts":"2026-10-03T23:55:00Z","skill":"branch-build","route":"plan","subject":"Fresh-context review","artifact":".branch/plans/2026-10-03-fresh-context-review.md","work":"2026-10-03-fresh-context-review","next":"/branch-review"}
+{"ts":"2026-10-04T00:00:00Z","skill":"branch-review","route":"code","subject":"fresh-context-review diff","artifact":null,"work":"2026-10-03-fresh-context-review","findings":0,"next":"/branch-review ready"}
