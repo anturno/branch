@@ -1,6 +1,6 @@
 # Skill overrides
 
-Status: building
+Status: shipped
 Source: terminal
 Trust: internal
 Created: 2026-10-04
