@@ -126,7 +126,8 @@ function reportInstall(l: ReturnType<typeof layout>, r: InstallResult) {
   const skills = skillNames().length;
   const where = l.global ? l.skillsDirLabel : relative(l.root, l.skillsDir);
   p.log.success(
-    `${skills} skills in ${where} (${r.written.length} new, ${r.updated.length} updated, ${r.unchanged.length} unchanged)`,
+    `${skills} skills in ${where} (${r.written.length} new, ${r.updated.length} updated, ${r.unchanged.length} unchanged)` +
+      (r.overridden.length > 0 ? ` · ${r.overridden.length} overridden` : ""),
   );
   if (r.skipped.length > 0) {
     p.log.warn(`Kept ${r.skipped.length} file(s) you edited:\n${r.skipped.join("\n")}\nUse --force to overwrite.`);

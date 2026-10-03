@@ -49,7 +49,7 @@ Plan: <path or none>
 PR: <url or none>
 ```
 
-`Status:` moves forward through `captured`, `triaged`, `specced`, `planned`, `building`, `reviewing`, `shipped`, `dropped`. `Source:` is where the work came from (`terminal` today; `issue:<n>`, `alert`, `schedule` later). `Trust:` is `internal` until intake accepts untrusted input.
+`Status:` moves forward through `captured`, `triaged`, `specced`, `planned`, `building`, `reviewing`, `shipped`, `dropped`. `Source:` is where the work came from (`terminal` today; `issue:<n>`, `alert`, `schedule` later). `Trust:` records provenance only — it is `internal` until intake accepts untrusted input, and it never gates stages.
 
 ### `capture` (inline)
 

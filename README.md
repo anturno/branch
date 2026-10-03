@@ -63,6 +63,8 @@ Each command asks one plain question when you give it nothing, and routes direct
 
 Options: `--host codex` installs to `.agents/skills` and `AGENTS.md`. `--global` installs skills to your home directory.
 
+To override a bundled skill, drop a file at `.branch/skills/<name>/SKILL.md` — `branch update` installs it (with `{{SKILLS_DIR}}`/`{{INVOKE}}` rendering) instead of the template.
+
 ## What the scan reads
 
 Manifests, lockfiles, workspace config, CI and deploy files, `.env.example`, and source files for env var **names**. It never opens `.env` files and never sends anything anywhere. Everything else is read by your agent, on your machine.

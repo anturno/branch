@@ -67,6 +67,24 @@ describe("installSkills", () => {
     expect(read(file)).toContain("name: branch-plan");
   });
 
+  it("installs .branch/skills/ overrides instead of templates", () => {
+    const root = fixture({
+      ".branch/skills/branch-plan/SKILL.md":
+        "---\nname: branch-plan\ndescription: mine\n---\n\nmy plan {{SKILLS_DIR}} {{INVOKE}}x\n",
+    });
+    const l = layout({ root });
+
+    const r = installSkills(l);
+
+    const installed = read(join(root, ".claude/skills/branch-plan/SKILL.md"));
+    expect(installed).toBe("---\nname: branch-plan\ndescription: mine\n---\n\nmy plan .claude/skills /x\n");
+    expect(r.overridden).toEqual(["branch-plan/SKILL.md"]);
+
+    const again = installSkills(l);
+    expect(again.overridden).toEqual(["branch-plan/SKILL.md"]);
+    expect(again.skipped).toEqual([]);
+  });
+
   it("updates untouched skills whose template changed", () => {
     const root = fixture({});
     const l = layout({ root });

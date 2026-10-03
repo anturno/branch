@@ -14,6 +14,8 @@ export type InstallResult = {
   unchanged: string[];
   /** Files the user edited since install. Left alone unless force. */
   skipped: string[];
+  /** Template skills replaced by .branch/skills/ files this run. */
+  overridden: string[];
   blocks: { file: string; action: "created" | "updated" | "unchanged" }[];
 };
 
@@ -54,12 +56,16 @@ function readManifest(path: string): Manifest | null {
 }
 
 export function installSkills(l: Layout, opts: { force?: boolean } = {}): InstallResult {
-  const result: InstallResult = { written: [], updated: [], unchanged: [], skipped: [], blocks: [] };
+  const result: InstallResult = { written: [], updated: [], unchanged: [], skipped: [], overridden: [], blocks: [] };
   const prev = readManifest(l.manifestPath);
   const next: Manifest = { version: packageVersion(), host: l.host, files: {} };
 
   for (const rel of templateSkillFiles()) {
-    const content = render(readFileSync(join(TEMPLATES_DIR, "skills", rel), "utf8"), l);
+    // A same-named file under .branch/skills/ overrides the bundled template.
+    const overridePath = join(l.stateDir, "skills", rel);
+    const override = existsSync(overridePath) ? readFileSync(overridePath, "utf8") : null;
+    if (override !== null) result.overridden.push(rel);
+    const content = render(override ?? readFileSync(join(TEMPLATES_DIR, "skills", rel), "utf8"), l);
     const dest = join(l.skillsDir, rel);
     const key = relative(l.installBase, dest);
     const hash = sha(content);
