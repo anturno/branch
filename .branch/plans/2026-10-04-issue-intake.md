@@ -1,6 +1,6 @@
 # Issue intake
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal

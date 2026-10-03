@@ -33,3 +33,4 @@
 {"ts":"2026-10-04T03:00:00Z","skill":"branch-triage","subject":"Issue intake","artifact":".branch/work/2026-10-04-issue-intake.md","work":"2026-10-04-issue-intake","next":"/branch-plan 2026-10-04-issue-intake"}
 {"ts":"2026-10-04T03:20:00Z","skill":"branch-build","route":"plan","subject":"Issue intake","artifact":".branch/plans/2026-10-04-issue-intake.md","work":"2026-10-04-issue-intake","next":"/branch-review"}
 {"ts":"2026-10-04T03:25:00Z","skill":"branch-review","route":"code","subject":"issue-intake diff","artifact":null,"work":"2026-10-04-issue-intake","findings":0,"next":"/branch-review ready"}
+{"ts":"2026-10-04T03:30:00Z","skill":"branch-ship","route":"pr","subject":"Issue intake","artifact":"branch issue-intake (no PR by request)","work":"2026-10-04-issue-intake","next":"/branch-reflect"}
