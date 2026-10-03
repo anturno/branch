@@ -19,7 +19,7 @@ Review the diff, not the session. Everything in your report must stand on `git d
 1. Find the default branch (`git symbolic-ref refs/remotes/origin/HEAD`, falling back to `main`).
 2. Get the diff: `git diff <default>...HEAD` and `git diff HEAD`. For a PR number, use `gh pr diff <n>`.
 3. Read `.branch/CONTEXT.md` Conventions. Read the full files around each change, not only the diff lines.
-4. If a plan in `.branch/plans/` matches this work, read it and check the changes against its Goal and Steps.
+4. If a plan in `.branch/plans/` matches this work, read it and check the changes against its Goal and Steps. If the work's card in `.branch/work/` links a spec, validate it too: each `## Acceptance` item needs evidence in the diff — a test, a command, or observable behavior. An acceptance item with no evidence is a finding.
 
 ## Check
 

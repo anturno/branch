@@ -76,6 +76,7 @@ export function info(l: Layout) {
       items: countMd(join(l.stateDir, "work")),
       ideas: countMd(join(l.stateDir, "ideas")),
       plans: countMd(join(l.stateDir, "plans")),
+      specs: countMd(join(l.stateDir, "specs")),
       retros: countMd(join(l.stateDir, "retros")),
     },
     lastActivity: lastActivity(l),

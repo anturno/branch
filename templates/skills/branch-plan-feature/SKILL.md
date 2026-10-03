@@ -9,11 +9,11 @@ Produce a plan another agent session could build from without asking questions.
 
 ## Input
 
-A subject, an idea file from `.branch/ideas/`, or a work card from `.branch/work/` (read its `Idea:` and `## Triage` section when present). Read `.branch/CONTEXT.md` first.
+A subject, an idea file from `.branch/ideas/`, or a work card from `.branch/work/` (read its `Idea:`, `Spec:` and `## Triage` section when present). Read `.branch/CONTEXT.md` first.
 
 ## Steps
 
-1. **Clarify scope.** If the goal or the "done" condition is unclear, ask up to three questions in one message. Otherwise go on.
+1. **Clarify scope.** If the card links an approved spec, the Goal and acceptance criteria come from it — do not re-ask what it already pins down. If the goal or the "done" condition is unclear and no spec exists, ask up to three questions in one message. Otherwise go on.
 2. **Search before designing.** Find existing code this feature should reuse or extend: similar components, API handlers, utilities, types, tests. Note paths. Do not plan something the repo already has.
 3. **Decide the approach.** One approach, the simplest that fits the conventions. Mention an alternative only if it was a close call, in one line.
 4. **Write steps.** Each step:

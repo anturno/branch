@@ -153,7 +153,7 @@ describe("scanAndWrite and info", () => {
     expect(i.context.exists).toBe(true);
     expect(i.contextDoc.exists).toBe(false);
     expect(i.agentFiles).toEqual([{ path: "CLAUDE.md", hasBlock: true }]);
-    expect(i.work).toEqual({ items: 2, ideas: 0, plans: 1, retros: 0 });
+    expect(i.work).toEqual({ items: 2, ideas: 0, plans: 1, specs: 0, retros: 0 });
     expect(i.lastActivity).toEqual({ skill: "branch-plan", next: "/branch-build" });
   });
 });

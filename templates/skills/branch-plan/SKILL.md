@@ -29,8 +29,9 @@ Look at the text after the command:
 > 1. Push back on whether this is worth building
 > 2. Break it into steps you can build one at a time
 > 3. Lock down the architecture: data, flows, edge cases
+> 4. Pin down what it must do first — the contract before the steps
 
-Map 1 → `pushback`, 2 → `feature`, 3 → `eng`. Do not print the keywords.
+Map 1 → `pushback`, 2 → `feature`, 3 → `eng`, 4 → `spec`. Do not print the keywords.
 
 If there is no subject yet, ask for one in the same message: "What are we planning?"
 
@@ -41,10 +42,38 @@ If there is no subject yet, ask for one in the same message: "What are we planni
 | `feature` (default) | `branch-plan-feature` |
 | `eng`, `architecture` | `branch-plan-eng` |
 | `pushback`, `ceo`, `yc` | `branch-pushback` |
+| `spec` | inline — see below |
 
-Print exactly one line at the top of your reply: `→ ran <skill>`
+Print exactly one line at the top of your reply: `→ ran <skill>` (or `→ ran branch-plan spec` for the inline route).
 
 Then read `{{SKILLS_DIR}}/<skill>/SKILL.md` from start to finish and follow it as if the user had invoked it, passing the subject.
+
+### `spec` (inline)
+
+Pin down what the change must do before anyone plans how.
+
+1. If the subject's work card already has a `Spec:` set, say so — revise the existing spec with the user's approval instead of writing a new one.
+2. Ask in one message: what must be true when this is done, and which checks prove it (tests, commands, visible behavior). At most two follow-up questions.
+3. Write `.branch/specs/<YYYY-MM-DD>-<kebab-slug>.md`:
+
+```markdown
+# <title>
+
+Status: draft
+Created: <YYYY-MM-DD>
+
+## Must do
+<what the change must accomplish — observable, not implementation>
+
+## Acceptance
+- [ ] <a check: a test name, a command + expected output, or visible behavior>
+
+## Out of scope
+- <excluded, only if not obvious>
+```
+
+4. Show the spec and ask once: "Approve, or change?" On approval set `Status: approved`; otherwise keep it `draft` and revise. The spec is the user's contract — never edit it after approval without their say.
+5. Update the work card (create one in the format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` if missing): `Status: specced`, `Spec: <path>`.
 
 ## Phase 4: Two intents
 

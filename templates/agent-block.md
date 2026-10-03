@@ -5,5 +5,5 @@ Before starting work, read `.branch/CONTEXT.md` (stack, commands, conventions, g
 
 Workflow: `{{INVOKE}}branch-idea` → `{{INVOKE}}branch-triage` → `{{INVOKE}}branch-plan` → `{{INVOKE}}branch-build` → `{{INVOKE}}branch-review` → `{{INVOKE}}branch-ship` → `{{INVOKE}}branch-reflect`.
 For a review that hasn't seen this session, run `branch review` in your shell — it opens a fresh agent on the diff.
-Every unit of work has a card in `.branch/work/` tracking its stage. Ideas live in `.branch/ideas/`, plans in `.branch/plans/`, retros in `.branch/retros/`. When building, follow the active plan in `.branch/plans/`.
+Every unit of work has a card in `.branch/work/` tracking its stage. Ideas live in `.branch/ideas/`, specs in `.branch/specs/`, plans in `.branch/plans/`, retros in `.branch/retros/`. When building, follow the active plan in `.branch/plans/`.
 <!-- branch:end -->
