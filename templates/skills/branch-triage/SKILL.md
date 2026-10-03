@@ -33,7 +33,7 @@ Small, well-specified work succeeds; everything else needs more before it starts
 
 | Verdict | When | Suggested next |
 |---------|------|----------------|
-| `ready` | fits one sitting, done-condition writable in one line, no auth/billing/data surface, no open questions | `{{INVOKE}}branch-build` |
+| `ready` | fits one sitting, done-condition writable in one line, no auth/billing/data surface, no open questions | `{{INVOKE}}branch-build task <subject>` |
 | `needs-plan` | worth doing, but multi-step or the approach is unclear | `{{INVOKE}}branch-plan` |
 | `question` | missing information only the user has | ask it now |
 | `drop` | duplicate, obsolete, or not worth it | none |

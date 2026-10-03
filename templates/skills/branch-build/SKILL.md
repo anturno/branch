@@ -19,7 +19,8 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 2. **A path to a plan** in `.branch/plans/`, or the word `plan` → `plan` route.
 3. **`fix` or a bug description** ("login is broken", an error message) → `fix` route.
 4. **`spike` or "try" / "prototype"** → `spike` route.
-5. **Anything else** → if a plan in `.branch/plans/` matches the subject, use `plan`; otherwise ask Phase 2.
+5. **`task`, a work-card path or slug, or a small job description** → `task` route.
+6. **Anything else** → if a plan in `.branch/plans/` matches the subject, use `plan`; otherwise ask Phase 2.
 
 ## Phase 2: Ask one question
 
@@ -27,7 +28,8 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 >
 > 1. Work through a plan (<name of the newest plan in .branch/plans/ with unchecked steps, if any>)
 > 2. Fix a bug
-> 3. Try something quickly and throw it away if it doesn't work
+> 3. A small task straight from a work card
+> 4. Try something quickly and throw it away if it doesn't work
 
 ## Phase 3: Routes
 
@@ -47,6 +49,15 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 3. Find the root cause. State it in one sentence before changing code.
 4. Make the smallest fix. Keep the failing test as a regression test when the repo has a test setup.
 5. Run the check again and the nearby test suite. Show that it passes.
+
+### `task`
+
+For small, well-specified work that needs no plan — typically a `ready` verdict from triage.
+
+1. Read the card (`.branch/work/<slug>.md`): its `## Triage` verdict and `Spec:` acceptance items when linked. Set `Status: building`; if the subject has no card, create one as in the `fix` route.
+2. Say in one line what you will change and which files.
+3. Implement the smallest correct change following the repo's conventions.
+4. Verify with the relevant check from CONTEXT.md.
 
 ### `spike`
 
