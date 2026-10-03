@@ -62,6 +62,7 @@ Each command asks one plain question when you give it nothing, and routes direct
 | `branch review` | Open a fresh agent session on `/branch-review` — it sees the diff, not this session |
 | `branch pull` | Pull a GitHub issue into the work queue as a captured card (`--launch` opens triage) |
 | `branch work <slug>` | Build a work item in its own git worktree at `.branch/worktrees/<slug>` |
+| `branch tick` | Advance the work queue once (`--launch` runs it — wire to launchd, cron, or Actions) |
 
 Options: `--host codex` installs to `.agents/skills` and `AGENTS.md`. `--global` installs skills to your home directory.
 

@@ -9,6 +9,7 @@ import { scan, diffContext } from "./scanner/index.js";
 import { info, readContext, scanAndWrite } from "./state.js";
 import { pullIssue } from "./pull.js";
 import { openWorktree } from "./work.js";
+import { nextAction, queueSummary, scanCards } from "./tick.js";
 
 const HELP = `branch ${packageVersion()}
 Give your AI agent the context and skills to build better products.
@@ -25,6 +26,7 @@ Commands
   review    Open a fresh agent session on /branch-review
   pull      Pull a GitHub issue into the work queue (--launch opens triage)
   work      Build a work item in its own git worktree: branch work <slug>
+  tick      Advance the work queue once (--launch runs it; for schedulers)
 
 Options
   --host <claude|codex>  Agent to install for (default: claude)
@@ -88,6 +90,8 @@ async function main(argv: string[]): Promise<number> {
       return runPull(l, positionals[1], values.launch);
     case "work":
       return runWork(l, positionals[1]);
+    case "tick":
+      return runTick(l, values.launch);
     default:
       console.error(`branch: unknown command "${command}"\n`);
       console.log(HELP);
@@ -171,6 +175,25 @@ async function runWork(l: ReturnType<typeof layout>, slug: string | undefined) {
   p.log.warn("Worktrees share ports, daemons and packages with the main checkout — two runs can't each bind the same port.");
   p.outro(`Opening ${l.host} in ${relative(l.root, dir)}`);
   return launch(l, `${l.invoke}branch-build task ${slug}`, { cwd: dir });
+}
+
+async function runTick(l: ReturnType<typeof layout>, launchAgent?: boolean) {
+  const cards = scanCards(l);
+  const { pending, inFlight, idle } = queueSummary(cards);
+  for (const c of pending) p.log.message(`${c.slug} — ${c.status}${c.verdict ? ` (${c.verdict})` : ""}`);
+  for (const c of inFlight) p.log.message(`${c.slug} — ${c.status} (in flight)`);
+  const action = nextAction(cards);
+  if (!action) {
+    p.outro(`Nothing pending (${idle} done)`);
+    return 0;
+  }
+  const prompt = `${l.invoke}${action.prompt}`;
+  if (launchAgent) {
+    p.outro(`Opening ${l.host} on ${prompt}`);
+    return launch(l, prompt);
+  }
+  p.outro(`Next: ${prompt} (--launch to run it)`);
+  return 0;
 }
 
 function reportInstall(l: ReturnType<typeof layout>, r: InstallResult) {
