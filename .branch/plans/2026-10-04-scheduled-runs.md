@@ -1,6 +1,6 @@
 # Scheduled runs
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal
