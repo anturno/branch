@@ -25,6 +25,15 @@ A window. Default: the last 7 days. Accept "last 2 weeks", "since <date>", "sinc
 - **Slipped**: plans with unchecked steps older than the window; what they are blocked on, if visible.
 - **Patterns**: commit timing and size, fixes following features (rework), reviews that found blocking issues, ideas dropped vs. built. Only claim a pattern with at least two data points.
 - **Previous try**: did it happen, did it help.
+- **Recurring lessons**: compare this retro's emerging "Try next" against earlier retros' `## Try next` lines in `.branch/retros/`. The same theme appearing twice or more means the suggestion isn't sticking — that's a lesson to promote, not repeat.
+
+## Promote
+
+When a lesson recurs, offer to write it where future sessions always see it — ask first:
+
+> The same lesson has come up <n> times: <theme>. Promote it to `## Gotchas` in `.branch/CONTEXT.md` so every session starts knowing it?
+
+On yes, append one line under `## Gotchas` (create the section if missing). A lesson that needs a whole procedure, not a fact, belongs in a `.branch/skills/` override or a new skill — say so instead.
 
 ## Output
 

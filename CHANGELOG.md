@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- Lesson promotion: `branch-retro` now spots a "Try next" theme recurring across retros and offers to promote it to `## Gotchas` in `CONTEXT.md` (with confirmation) — evidence-triggered, so lessons land where future sessions always read them.
 - `branch tick`: advances the work queue once — reports pending and in-flight cards, and with `--launch` opens the agent on the next action (triage the queue, or `branch-build task` on the oldest `ready` card). Designed to be called by launchd, cron, or CI on a timer; the scheduler owns timing, skills own the logic.
 - `branch work <slug>`: opens a git worktree at `.branch/worktrees/<slug>` (resumed on re-run, hidden from status via `.git/info/exclude`) and launches the agent inside it on `/branch-build task`. Worktrees share ports, daemons and packages with the main checkout — it's correctness isolation, not a security boundary.
 - `branch pull <issue>`: pulls a GitHub issue into the queue as a `captured` work card (`Source: issue:<n>`, `Trust: untrusted`) carrying the issue text in a `## Source` section; dedupes on the issue number; `--launch` opens the agent on `/branch-triage`. Triage, plan, and task-build read the `## Source` text.
