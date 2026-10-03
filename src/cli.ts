@@ -10,6 +10,7 @@ import { info, readContext, scanAndWrite } from "./state.js";
 import { pullIssue } from "./pull.js";
 import { openWorktree } from "./work.js";
 import { nextAction, queueSummary, scanCards } from "./tick.js";
+import { computeMetrics, formatMetrics, recordMetrics } from "./metrics.js";
 
 const HELP = `branch ${packageVersion()}
 Give your AI agent the context and skills to build better products.
@@ -27,6 +28,7 @@ Commands
   pull      Pull a GitHub issue into the work queue (--launch opens triage)
   work      Build a work item in its own git worktree: branch work <slug>
   tick      Advance the work queue once (--launch runs it; for schedulers)
+  metrics   Count outcomes — cards by status, runs by stage, review findings
 
 Options
   --host <claude|codex>  Agent to install for (default: claude)
@@ -92,6 +94,12 @@ async function main(argv: string[]): Promise<number> {
       return runWork(l, positionals[1]);
     case "tick":
       return runTick(l, values.launch);
+    case "metrics": {
+      const m = computeMetrics(l);
+      recordMetrics(l, m);
+      console.log(formatMetrics(m));
+      return 0;
+    }
     default:
       console.error(`branch: unknown command "${command}"\n`);
       console.log(HELP);

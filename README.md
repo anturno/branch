@@ -63,6 +63,7 @@ Each command asks one plain question when you give it nothing, and routes direct
 | `branch pull` | Pull a GitHub issue into the work queue as a captured card (`--launch` opens triage) |
 | `branch work <slug>` | Build a work item in its own git worktree at `.branch/worktrees/<slug>` |
 | `branch tick` | Advance the work queue once (`--launch` runs it — wire to launchd, cron, or Actions) |
+| `branch metrics` | Count outcomes — cards by status, runs per stage, review findings (snapshots to `.branch/metrics.jsonl` for retros) |
 
 Options: `--host codex` installs to `.agents/skills` and `AGENTS.md`. `--global` installs skills to your home directory.
 

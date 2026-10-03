@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- `branch metrics`: counts the outcomes the pipeline already records — cards by status, runs per stage, review findings — and appends a snapshot to `.branch/metrics.jsonl`. `branch-retro` reads the trend, so "did it work" becomes data.
 - Diff walkthroughs: `branch-review-code` reports now lead with a 4–6 bullet narration of what the change does, in logic order — for the human who merges without reading every line.
 - Risk-classified review: `branch-review-code` now picks its weight from the diff — paths touching auth/billing/migrations/credentials or diffs touching eval/exec/raw SQL get the full security checklist unprompted; docs-only changes get a two-line review.
 - Lesson promotion: `branch-retro` now spots a "Try next" theme recurring across retros and offers to promote it to `## Gotchas` in `CONTEXT.md` (with confirmation) — evidence-triggered, so lessons land where future sessions always read them.

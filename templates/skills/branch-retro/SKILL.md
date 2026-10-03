@@ -18,6 +18,7 @@ A window. Default: the last 7 days. Accept "last 2 weeks", "since <date>", "sinc
 3. Plans in `.branch/plans/`: status, steps checked vs. total, date created.
 4. Ideas in `.branch/ideas/` created in the window and their status.
 5. The previous retro in `.branch/retros/`, if any, and whether its "Try next" happened.
+6. `.branch/metrics.jsonl` snapshots — cards by status, runs per stage, review findings — for the trend, not just the window.
 
 ## Analyze
 
