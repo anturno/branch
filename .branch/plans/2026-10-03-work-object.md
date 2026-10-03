@@ -1,6 +1,6 @@
 # One work object
 
-Status: planned
+Status: shipped
 Idea: .branch/ideas/2026-10-03-work-object.md
 
 ## Goal
