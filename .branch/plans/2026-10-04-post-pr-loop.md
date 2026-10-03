@@ -1,6 +1,6 @@
 # Post-PR loop
 
-Status: planned
+Status: shipped
 Idea: none
 
 ## Goal
