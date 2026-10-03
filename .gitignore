@@ -4,3 +4,6 @@ dist/
 .DS_Store
 coverage/
 *.log
+
+ROADMAP.md
+.claude/skills/

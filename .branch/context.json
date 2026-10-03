@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "scannedAt": "2026-10-03T21:54:17.385Z",
+  "name": "@anturno/branch",
+  "languages": [
+    "TypeScript"
+  ],
+  "packageManager": "bun",
+  "frameworks": [],
+  "monorepo": {
+    "tool": null,
+    "workspaces": []
+  },
+  "testFrameworks": [],
+  "tooling": [
+    "TypeScript"
+  ],
+  "ci": [
+    {
+      "provider": "GitHub Actions",
+      "file": ".github/workflows/ci.yml"
+    },
+    {
+      "provider": "GitHub Actions",
+      "file": ".github/workflows/pages.yml"
+    }
+  ],
+  "deploy": [],
+  "scripts": {
+    ".": {
+      "build": "bun run scripts/build.ts",
+      "dev": "bun run src/cli.ts",
+      "test": "bun test",
+      "typecheck": "tsc --noEmit",
+      "prepublishOnly": "bun run typecheck && bun test && bun run build"
+    }
+  },
+  "envVars": [
+    {
+      "name": "BRANCH_AGENT_DEPTH",
+      "sources": [
+        "src/launch.ts"
+      ]
+    },
+    {
+      "name": "CHROME",
+      "sources": [
+        "site/og/render.ts"
+      ]
+    },
+    {
+      "name": "DATABASE_URL",
+      "sources": [
+        "test/scanner.test.ts"
+      ]
+    },
+    {
+      "name": "FROM_NODE_MODULES",
+      "sources": [
+        "test/scanner.test.ts"
+      ]
+    },
+    {
+      "name": "SITE_URL",
+      "sources": [
+        "site/build.ts"
+      ]
+    },
+    {
+      "name": "STRIPE_SECRET_KEY",
+      "sources": [
+        "test/scanner.test.ts"
+      ]
+    }
+  ],
+  "services": [],
+  "existingContext": [
+    "README.md",
+    "CONTRIBUTING.md"
+  ]
+}
