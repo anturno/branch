@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- `branch work <slug>`: opens a git worktree at `.branch/worktrees/<slug>` (resumed on re-run, hidden from status via `.git/info/exclude`) and launches the agent inside it on `/branch-build task`. Worktrees share ports, daemons and packages with the main checkout — it's correctness isolation, not a security boundary.
 - `branch pull <issue>`: pulls a GitHub issue into the queue as a `captured` work card (`Source: issue:<n>`, `Trust: untrusted`) carrying the issue text in a `## Source` section; dedupes on the issue number; `--launch` opens the agent on `/branch-triage`. Triage, plan, and task-build read the `## Source` text.
 - `task` route on `branch-build`: builds a small, well-specified work item straight from its card — the path `ready` triage verdicts point at.
 - Skill overrides: a file at `.branch/skills/<name>/SKILL.md` replaces the bundled template on `branch init`/`update` (still rendered), reported as `overridden`.

@@ -8,6 +8,7 @@ import { type Host, findRoot, layout, packageVersion } from "./paths.js";
 import { scan, diffContext } from "./scanner/index.js";
 import { info, readContext, scanAndWrite } from "./state.js";
 import { pullIssue } from "./pull.js";
+import { openWorktree } from "./work.js";
 
 const HELP = `branch ${packageVersion()}
 Give your AI agent the context and skills to build better products.
@@ -23,6 +24,7 @@ Commands
   start     Open the agent on /branch-start
   review    Open a fresh agent session on /branch-review
   pull      Pull a GitHub issue into the work queue (--launch opens triage)
+  work      Build a work item in its own git worktree: branch work <slug>
 
 Options
   --host <claude|codex>  Agent to install for (default: claude)
@@ -84,6 +86,8 @@ async function main(argv: string[]): Promise<number> {
       return launch(l, `${l.invoke}branch-review ${positionals.slice(1).join(" ")}`.trim());
     case "pull":
       return runPull(l, positionals[1], values.launch);
+    case "work":
+      return runWork(l, positionals[1]);
     default:
       console.error(`branch: unknown command "${command}"\n`);
       console.log(HELP);
@@ -146,6 +150,27 @@ async function runPull(l: ReturnType<typeof layout>, ref: string | undefined, la
   }
   p.outro(`Next: ${next}`);
   return 0;
+}
+
+async function runWork(l: ReturnType<typeof layout>, slug: string | undefined) {
+  if (!slug) {
+    console.error("branch: work needs a work-item slug (a card in .branch/work/)");
+    return 1;
+  }
+  if (!existsSync(join(l.stateDir, "work", `${slug}.md`))) {
+    console.error(`branch: no card for "${slug}" in .branch/work/ — capture or pull it first.`);
+    return 1;
+  }
+  let dir: string;
+  try {
+    dir = openWorktree(l, slug);
+  } catch (e) {
+    console.error(e instanceof Error ? e.message : String(e));
+    return 1;
+  }
+  p.log.warn("Worktrees share ports, daemons and packages with the main checkout — two runs can't each bind the same port.");
+  p.outro(`Opening ${l.host} in ${relative(l.root, dir)}`);
+  return launch(l, `${l.invoke}branch-build task ${slug}`, { cwd: dir });
 }
 
 function reportInstall(l: ReturnType<typeof layout>, r: InstallResult) {

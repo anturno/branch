@@ -10,7 +10,7 @@ export function agentAvailable(bin: string): boolean {
 }
 
 /** Opens the agent in the repo with branch state pre-computed in the system prompt. */
-export function launch(l: Layout, prompt: string): Promise<number> {
+export function launch(l: Layout, prompt: string, opts: { cwd?: string } = {}): Promise<number> {
   const depth = Number.parseInt(process.env.BRANCH_AGENT_DEPTH ?? "0", 10) || 0;
   if (depth >= MAX_DEPTH) {
     throw new Error("branch: refusing to launch an agent from inside a branch agent session.");
@@ -29,7 +29,7 @@ export function launch(l: Layout, prompt: string): Promise<number> {
       : ["codex", [`${state}\n\n${prompt}`]];
 
   return new Promise((resolve, reject) => {
-    const child = spawn(bin, args, { cwd: l.root, env, stdio: "inherit" });
+    const child = spawn(bin, args, { cwd: opts.cwd ?? l.root, env, stdio: "inherit" });
     child.on("error", reject);
     child.on("close", (code) => resolve(code ?? 0));
   });
