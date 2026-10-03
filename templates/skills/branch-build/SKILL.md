@@ -42,7 +42,7 @@ Read `.branch/CONTEXT.md`. If it is missing, run `{{SKILLS_DIR}}/branch-start/SK
 
 ### `fix`
 
-1. A fix is a unit of work too: create `.branch/work/<YYYY-MM-DD>-<kebab-slug>.md` in the card format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` with `Status: building` (skip if a card for this fix already exists).
+1. A fix is a unit of work too: if a card for it already exists (`.branch/work/*<slug>.md`), set `Status: building` on it. Otherwise create `.branch/work/<YYYY-MM-DD>-<kebab-slug>.md` in the card format from `{{SKILLS_DIR}}/branch-idea/SKILL.md` with `Status: building`.
 2. Reproduce first: find or write the smallest failing check (test, script, or exact manual steps). Show the failure.
 3. Find the root cause. State it in one sentence before changing code.
 4. Make the smallest fix. Keep the failing test as a regression test when the repo has a test setup.

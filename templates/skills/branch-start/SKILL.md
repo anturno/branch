@@ -63,11 +63,12 @@ branch · <name>
 
 What next?
 1. Capture or pressure-test an idea    {{INVOKE}}branch-idea
-2. Turn it into a plan                 {{INVOKE}}branch-plan
-3. Build from a plan, fix, or spike    {{INVOKE}}branch-build
-4. Review the work                     {{INVOKE}}branch-review
-5. Get it shipped                      {{INVOKE}}branch-ship
-6. Look back                           {{INVOKE}}branch-reflect
+2. Sort what to build                  {{INVOKE}}branch-triage
+3. Turn it into a plan                 {{INVOKE}}branch-plan
+4. Build from a plan, fix, or spike    {{INVOKE}}branch-build
+5. Review the work                     {{INVOKE}}branch-review
+6. Get it shipped                      {{INVOKE}}branch-ship
+7. Look back                           {{INVOKE}}branch-reflect
 ```
 
 If `lastActivity.next` exists, add one line under the menu: `Suggested: <next>`.

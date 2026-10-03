@@ -80,4 +80,4 @@ Print `→ ran branch-pushback`, then read `{{SKILLS_DIR}}/branch-pushback/SKILL
 
 1. Append to `.branch/activity.jsonl`:
    `{"ts":"<ISO time>","skill":"branch-idea","route":"<route>","subject":"<title>","artifact":"<idea file>","work":"<card slug>","next":"<next command>"}`
-2. End with one line. Raw idea: `Next: {{INVOKE}}branch-idea develop`. Developed or approved: `Next: {{INVOKE}}branch-plan <idea file>`. Verdict "drop": no next step.
+2. End with one line. Raw idea: `Next: {{INVOKE}}branch-idea develop`. Developed or approved: `Next: {{INVOKE}}branch-triage <slug>`. Verdict "drop": no next step.

@@ -20,7 +20,7 @@ Look at the text after the command:
 1. **Empty** → Phase 2.
 2. **A route keyword** from the table in Phase 3 → Phase 3.
 3. **Two routes joined by "and", "then", or ","** → Phase 4.
-4. **Anything else** → it is the *subject* (e.g. "a new login flow"). If `.branch/ideas/` has a matching idea file, attach it. Go to Phase 2 and carry the subject through.
+4. **Anything else** → it is the *subject* (e.g. "a new login flow"). If `.branch/ideas/` has a matching idea file or `.branch/work/` a matching card, attach it. Go to Phase 2 and carry the subject through.
 
 ## Phase 2: Ask one question
 
